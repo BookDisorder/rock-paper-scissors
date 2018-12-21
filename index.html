@@ -11,9 +11,21 @@
 <body>
     <script>
         function computerPlay(){
-            let computerSelection = ['Rock', 'Paper', 'Scissors']
+            let computerSelection = ['rock', 'paper', 'scissors']
             return computerSelection[Math.floor(Math.random()*computerSelection.length)];
         }
+
+        function playRound(playerSelection, computerSelection){
+            if (playerSelection == 'rock' && computerSelection == 'rock') {
+                return 'It\'s a tie! Rock vs. Rock!';
+            } else if (playerSelection == 'rock' && computerSelection == 'paper') {
+              return 'You Lose! Paper beats Rock!'; 
+              } else (playerSelection == 'rock' && computerSelection == 'scissors')
+                return 'You Win! Rock beats Scissors!';
+                  }
+        const playerSelection = 'rock'
+        const computerSelection = computerPlay()
+        console.log(playRound(playerSelection, computerSelection))
     </script>
 </body>
 </html>
