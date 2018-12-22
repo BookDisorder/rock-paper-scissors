@@ -10,35 +10,63 @@
 </head>
 <body>
     <script>
-        function computerPlay(){
-            let computerSelection = ['rock', 'paper', 'scissors']
-            return computerSelection[Math.floor(Math.random()*computerSelection.length)];
+
+    function computerPlay(){
+        let computerSelection = ['rock', 'paper', 'scissors']
+        return computerSelection[Math.floor(Math.random()*computerSelection.length)];
         }
+
+    let playerScore = 0;
+    let computerScore = 0;
 
      function playRound(playerSelection, computerSelection){
 
-        switch(playerSelectionLowerCase + computerSelection){
+        switch(playerSelection.toLowerCase() + computerSelection){
           case 'rockscissors':
           case 'scissorspaper':
           case 'paperrock':
+            playerScore++;
             return 'You Win! ' + playerSelection + ' beats ' + computerSelection + '.';
             break;
           case 'rockpaper':
           case 'scissorsrock':
           case 'paperscissors':
+            computerScore++;
             return 'You Lose! ' + computerSelection + ' beats ' + playerSelection + '.';
             break;
           case 'rockrock':    
           case 'paperpaper':
           case 'scissorsscissors':
-            return 'It\'s a tie! ' + playerSelection + ' vs ' + computerSelection + '.';
+            return 'It\'s a tie! ' + playerSelection + ' equals ' + computerSelection + '.';
             break;
-        } }  
+          default: prompt('Please enter ROCK, PAPER, or SCISSORS')
+        } 
+    }  
 
+    function game() {
+        while (playerScore < 3 && computerScore < 3) {
         let playerSelection = prompt('Please enter ROCK, PAPER or SCISSORS')
-        let playerSelectionLowerCase = playerSelection.toLowerCase();
         const computerSelection = computerPlay();
-        console.log(playRound(playerSelection, computerSelection));
+
+        console.log(playRound(playerSelection, computerSelection)); 
+        console.log('H: ' + playerScore);
+        console.log('C: ' + computerScore); 
+
+        }
+
+    }
+    function winnerMessage(){
+    if (playerScore == 3) {
+            console.log('You Win! Best of 5!')
+        } else {
+            console.log('Computer Wins! Best of 5!')
+        }   
+    }
+
+    game();
+    winnerMessage();
+
+        
     </script>
 </body>
 </html>
